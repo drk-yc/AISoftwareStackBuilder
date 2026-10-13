@@ -1,0 +1,10 @@
+{
+  "description": "Helps developers, researchers, creatives, and IT teams select tailored AI software stacks based on role, scale, and deployment needs with clear upgrade options.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
