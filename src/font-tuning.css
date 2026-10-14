@@ -1,0 +1,54 @@
+/*
+ * Saira font tuning — brings the Saira headings back toward the original
+ * Barlow Condensed / Inter look by narrowing width and adjusting weight.
+ *
+ * TO REVERT: delete the `import './font-tuning.css'` line in src/main.tsx
+ * (and optionally this file). Nothing in index.css was changed.
+ *
+ * Tweak the variables below to dial the look in.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wdth,wght@0,50..125,100..900;1,50..125,100..900&display=swap");
+
+:root {
+  --display-stretch: 75%;      /* 62.5% extra-condensed · 75% condensed · 87.5% semi-condensed · 125% expanded */
+  --display-weight: 700;       /* original Barlow Condensed headings used 700–800 */
+  --display-tracking: -.025em; /* original was -.035em */
+}
+
+/* Large headings: were Barlow Condensed, became Saira Expanded */
+h1, h2, h3 {
+  font-family: "Saira", sans-serif;
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+  letter-spacing: var(--display-tracking);
+}
+h1 em, footer h2 em { font-weight: var(--display-weight); }
+
+/* "READY FOR AI." — italic, black fill with the original 1px white outline */
+h1 em { font-style: italic; color: var(--c-black); -webkit-text-stroke: 1px var(--c-white); }
+
+/* Use-case headline: size to its column so the longest line
+   ("FROM RAW DATA TO", ~7.8em at 75% width) fits, keeping it to two lines */
+.use-copy { container-type: inline-size; }
+.use-copy h2 { font-size: min(clamp(60px, 6.7vw, 104px), 12.5cqi); max-width: 8.1em; }
+
+/* Smaller display labels: also originally Barlow Condensed */
+.machine-face strong,
+.role-mark,
+.role-card strong,
+.preview-row strong,
+.package-item strong,
+.scale-toggle strong,
+.specs strong,
+.mini-tower b,
+.mini-tower small {
+  font-family: "Saira", sans-serif;
+  font-stretch: var(--display-stretch);
+  font-weight: var(--display-weight);
+}
+.machine-face strong { font-weight: 800; }
+
+/* Brand wordmark: "Saira Expanded" isn't a real Google Font (it fell back to serif),
+   so use Saira's own expanded width instead. For a condensed wordmark like the
+   original, set font-stretch to var(--display-stretch) and font-weight to 800. */
+.brand { font-family: "Saira", sans-serif; font-stretch: 125%; font-weight: 700; }
