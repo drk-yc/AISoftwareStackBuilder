@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import corsairSails from "./assets/corsair-sails.png";
 
 type Workload = "data" | "ml" | "creative" | "developer";
 type Setup = "core" | "recommended" | "complete";
@@ -126,7 +127,7 @@ export default function App() {
     <main>
       <nav className="nav">
         <a className="brand" href="#top" aria-label="Corsair AI setup home">
-          <span className="brand-sails" aria-hidden="true"><i /><i /><i /><i /></span>
+          <img className="brand-mark" src={corsairSails} alt="" aria-hidden="true" />
           <span>CORSAIR</span>
         </a>
         <div className="nav-links" aria-label="Primary navigation">
